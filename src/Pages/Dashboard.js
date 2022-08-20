@@ -22,13 +22,13 @@ function App() {
     }, [])
 
     const handleScroll = () => {
+        console.log('window.innerHeight:',window.innerHeight,' document.documentElement.scrollTop:',document.documentElement.scrollTop,' document.documentElement.offsetHeight:',document.documentElement.offsetHeight);
         if (
-            Math.ceil(window.innerHeight + document.documentElement.scrollTop) !== document.documentElement.offsetHeight ||
+            Math.ceil(window.innerHeight + document.documentElement.scrollTop) < document.documentElement.offsetHeight ||
             isFetching
         )
             return;
         setIsFetching(true);
-        console.log(isFetching);
     };
 
     const fetchData = () => {
